@@ -1,26 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function ItemName({ name }) {
+export function ItemsList({ name, location }) {
   return (
-    <td>
-      {name}
-    </td>
+    <>
+      <td>{name}</td>
+      <td>{location}</td>
+    </>
   );
 }
 
-export function ItemLocation({ location }) {
-  return (
-    <td>
-      {location}
-    </td>
-  );
-}
-
-ItemName.propTypes = {
+ItemsList.propTypes = {
   name: PropTypes.string.isRequired,
-};
-
-ItemLocation.propTypes = {
   location: PropTypes.string.isRequired,
 };

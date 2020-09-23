@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Col, Container, Navbar, Row, Table } from 'react-bootstrap';
+import { Container, Row, Table } from 'react-bootstrap';
 
-import { LabelCounter } from './components/LabelCounter';
-import { ItemName } from './components/ItemsList';
-import { ItemLocation } from './components/ItemsList';
+import { ItemsList } from './components/ItemsList';
+import { ContainerDesc } from './components/ContainerDesc';
+import { ContainerNavbar } from './components/ContainerNavbar';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -11,26 +11,13 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      <Container>
-        <Row>
-          <Navbar bg="light">
-            <Navbar.Brand>Secure cloud storage</Navbar.Brand>
-          </Navbar>
-        </Row>
-      </Container>
+      <ContainerNavbar />
       <Container>
         <Row>
           <h2>Bucket list</h2>
         </Row>
       </Container>
-      <Container>
-        <Row>
-          <Col className="d-flex align-items-center justify-content-between">
-            <LabelCounter label="All Buckets" counter={4} />
-            <Button variant="info">Create New Bucket</Button>
-          </Col>
-        </Row>
-      </Container>
+      <ContainerDesc />
       <Container>
         <Row>
           <Table>
@@ -42,12 +29,10 @@ function App() {
             </thead>
             <tbody>
               <tr>
-                <ItemName name="BestStorage" />
-                <ItemLocation location="Kranj" />
+                <ItemsList name="BestStorage" location="Kranj" />
               </tr>
               <tr>
-                <ItemName name="Pics" />
-                <ItemLocation location="Ljubljana" />
+                <ItemsList name="Pics" location="Ljubljana" />
               </tr>
             </tbody>
           </Table>
