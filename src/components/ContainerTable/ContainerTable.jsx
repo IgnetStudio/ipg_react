@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
 import { ItemsList } from '../ItemsList';
+import { ContainerDesc } from '../ContainerDesc';
 
 export function ContainerTable() {
   return (
     <>
+      <ContainerDesc />
       <Container>
         <Row>
           <Table>

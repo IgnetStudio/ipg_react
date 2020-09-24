@@ -10,7 +10,7 @@ export function ContainerDesc() {
         <Row>
           <Col className="d-flex align-items-center justify-content-between">
             <LabelCounter label="All Buckets" counter={4} />
-            <Button variant="info">Create New Bucket</Button>
+            {/* <Button variant="info">Create New Bucket</Button> */}
           </Col>
         </Row>
       </Container>
