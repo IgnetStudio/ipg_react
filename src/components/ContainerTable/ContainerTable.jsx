@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
-import { ItemsList } from '../ItemsList';
+import { ItemsBucket } from '../ItemsBucket';
 import { ContainerDesc } from '../ContainerDesc';
 
 export function ContainerTable() {
@@ -18,10 +18,10 @@ export function ContainerTable() {
             </thead>
             <tbody>
               <tr>
-                <ItemsList name="BestStorage" location="Kranj" />
+                <ItemsBucket name="BestStorage" location="Kranj" />
               </tr>
               <tr>
-                <ItemsList name="Pics" location="Ljubljana" />
+                <ItemsBucket name="Pics" location="Ljubljana" />
               </tr>
             </tbody>
           </Table>

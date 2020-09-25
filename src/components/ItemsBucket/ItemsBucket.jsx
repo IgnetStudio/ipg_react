@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function ItemsList({ name, location }) {
+export function ItemsBucket({ name, location }) {
   return (
     <>
       <td>{name}</td>
@@ -10,7 +10,7 @@ export function ItemsList({ name, location }) {
   );
 }
 
-ItemsList.propTypes = {
+ItemsBucket.propTypes = {
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
 };

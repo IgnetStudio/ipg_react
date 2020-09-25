@@ -4,7 +4,7 @@ import { ContainerBucket } from './components/ContainerBucket';
 import { ContainerNavbar } from './components/ContainerNavbar';
 import { ContainerTitle } from './components/ContainerTitle';
 import { ContainerTable } from './components/ContainerTable';
-import { NavStorage } from './components/NavStorage';
+import { ContainerStorage } from './components/ContainerStorage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -16,7 +16,7 @@ function App() {
       <ContainerBucket />
       <ContainerTitle />
       <ContainerTable />
-      <NavStorage />
+      <ContainerStorage />
     </div>
   );
 }
