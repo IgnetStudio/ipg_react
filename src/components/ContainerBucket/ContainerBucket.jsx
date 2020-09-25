@@ -17,11 +17,9 @@ export function ContainerBucket() {
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Bucket Location</Form.Label>
             <Form.Control as="select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>Kranj</option>
+              <option>Ljubljana</option>
+              <option>Škofja Loka</option>
             </Form.Control>
           </Form.Group>
         </Col>
@@ -30,9 +28,13 @@ export function ContainerBucket() {
         </Col>
       </Form.Row>
     </Form>
-  )
+  );
 
-  const createNewBucketBtn = <Button variant="info" onClick={() => setIsFormOpen(true)} >Create New Bucket</Button>
+  const createNewBucketBtn = (
+    <Button variant="info" onClick={() => setIsFormOpen(true)}>
+      Create New Bucket
+    </Button>
+  );
 
   return (
     <>
