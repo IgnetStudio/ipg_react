@@ -27,7 +27,6 @@ export function ContainerTable() {
           </Table>
         </Row>
       </Container>
-      ;
     </>
   );
 }
