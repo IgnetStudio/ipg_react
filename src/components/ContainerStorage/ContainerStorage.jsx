@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import { ContainerTable } from '../ContainerTable';
+import { WrapperStorage } from '../WrapperStorage';
 import { NavStorage } from '../NavStorage';
 
 export function ContainerStorage() {
@@ -9,7 +9,7 @@ export function ContainerStorage() {
     <>
       <Container>
         <NavStorage />
-        <ContainerTable />
+        <WrapperStorage />
       </Container>
     </>
   );
