@@ -2,9 +2,8 @@
 import axios from 'axios';
 
 export function GetBucket() {
-  // return false;
   return axios
-    .get(process.env.REACT_APP_URL + 'locations', {
+    .get(process.env.REACT_APP_URL + 'buckets', {
       headers: {
         Authorization: `Token ${process.env.REACT_APP_TOKEN}`,
       },

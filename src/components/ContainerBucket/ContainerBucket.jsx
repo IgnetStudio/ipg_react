@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, Form } from 'react-bootstrap';
-// import React from 'react';
 import axios from 'axios';
 
 import { ContainerDesc } from '../ContainerDesc';
-import { LocationsBucket } from '../LocationsBucket';
 
 export function ContainerBucket() {
+  const [locations, setLocation] = useState();
+
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_URL + 'locations', {
+        headers: {
+          Authorization: `Token ${process.env.REACT_APP_TOKEN}`,
+        },
+      })
+      .then((response) => {
+        setLocation(response.data.locations);
+      });
+  }, []);
+
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [form, setForm] = useState({ name: '', location: '' });
 
@@ -14,10 +26,6 @@ export function ContainerBucket() {
     let newState = { ...form, [item]: value };
     setForm(newState);
   };
-
-  const locations = LocationsBucket();
-
-  console.log(locations);
 
   const formContainer = (
     <Form>
@@ -38,16 +46,17 @@ export function ContainerBucket() {
               value={form.location}
               onChange={(event) => formChange(event.target.value, 'location')}
             >
-              {locations.map((item) => (
-                <option key={item.key}>{item.name}</option>
-              ))}
-              <option value="test">Ljubljana</option>
-              <option>Škofja Loka</option>
+              {locations &&
+                locations.map((item) => (
+                  <option value={item.id} key={item.id}>
+                    {item.name}
+                  </option>
+                ))}
             </Form.Control>
           </Form.Group>
         </Col>
         <Col xs={12} md={6}>
-          <Button variant="info" onClick={(event) => createBucket(form)}>
+          <Button variant="info" onClick={() => createBucket(form)}>
             Create Bucket
           </Button>
         </Col>
@@ -61,16 +70,17 @@ export function ContainerBucket() {
     </Button>
   );
 
-  const createBucket = (event, data) => {
-    console.log(data);
+  const createBucket = (form) => {
+    const postData = {
+      name: form.name,
+      location: form.location,
+    };
     return axios
-      .post(process.env.REACT_APP_URL + 'buckets', {
+      .post(process.env.REACT_APP_URL + 'buckets', postData, {
         headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
           Authorization: `Token ${process.env.REACT_APP_TOKEN}`,
-        },
-        postData: {
-          name: '',
-          location: '',
         },
       })
       .then((res) => {
