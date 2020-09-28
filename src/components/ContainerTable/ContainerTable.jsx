@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { Container, Row, Table } from 'react-bootstrap';
 import { ContainerDesc } from '../ContainerDesc';
-import { getBucket } from '../../utils/getBucket';
 
 const GetItems = ({ items }) => {
   if (items && items.hasOwnProperty('buckets') && items.buckets.length > 0) {
@@ -15,22 +14,13 @@ const GetItems = ({ items }) => {
   } else {
     return (
       <tr>
-        <td>placeholder</td>
+        <td>no data</td>
       </tr>
     );
   }
 };
 
-export function ContainerTable() {
-  const [data, setData] = useState();
-  useEffect(() => {
-    const getData = async () => {
-      const newBucket = await getBucket();
-      setData(newBucket);
-    };
-    getData();
-  }, []);
-
+export function ContainerTable(props) {
   return (
     <>
       <ContainerDesc />
@@ -44,7 +34,7 @@ export function ContainerTable() {
               </tr>
             </thead>
             <tbody>
-              <GetItems items={data} />
+              <GetItems items={props.data} />
             </tbody>
           </Table>
         </Row>
