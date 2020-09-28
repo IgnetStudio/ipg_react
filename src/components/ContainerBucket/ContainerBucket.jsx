@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, Form } from 'react-bootstrap';
 import axios from 'axios';
 
-// import { ContainerDesc } from '../ContainerDesc';
-
 export function ContainerBucket(props) {
   const [form, setForm] = useState({ name: '', location: '' });
   const [locations, setLocation] = useState();

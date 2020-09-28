@@ -1,11 +1,8 @@
 import React from 'react';
 import { Container, Form, Row } from 'react-bootstrap';
 
-// import axios from 'axios';
-
 const targetHelper = (e) => {
   console.log(e.target.value);
-  // console.log(e);
 };
 
 export function InputFile() {

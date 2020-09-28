@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export function LocationsBucket() {
-  // return false;
   return axios
     .get(process.env.REACT_APP_URL + 'locations', {
       headers: {
