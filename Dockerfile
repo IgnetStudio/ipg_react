@@ -9,8 +9,9 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
 COPY ./ /app/
-RUN yarn && yarn build
-RUN yarn global add serve
+RUN yarn --silent && yarn build
+RUN rm .env
+RUN yarn add serve
 
 # start app
-CMD ["yarn global add serve", "-s", '/app/build']
+CMD "serve -s /app/build "

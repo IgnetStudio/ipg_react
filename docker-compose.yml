@@ -3,8 +3,7 @@ version: '3'
 services:
   app:
     build: .
-    environment:
-      - 'REACT_APP_TOKEN=${REACT_APP_TOKEN}'
-      - 'REACT_APP_URL=${REACT_APP_URL}'
+    command: serve -s /app/build
+    container_name: ipg_react
     ports:
       - 5000:5000
