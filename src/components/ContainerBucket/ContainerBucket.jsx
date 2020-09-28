@@ -23,7 +23,7 @@ export function ContainerBucket() {
   const [form, setForm] = useState({ name: '', location: '' });
 
   const formChange = (value, item) => {
-    let newState = { ...form, [item]: value };
+    const newState = { ...form, [item]: value };
     setForm(newState);
   };
 
@@ -75,6 +75,7 @@ export function ContainerBucket() {
       name: form.name,
       location: form.location,
     };
+
     return axios
       .post(process.env.REACT_APP_URL + 'buckets', postData, {
         headers: {

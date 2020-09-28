@@ -1,7 +1,7 @@
 // import React from 'react';
 import axios from 'axios';
 
-export function GetBucket() {
+export function getBucket() {
   return axios
     .get(process.env.REACT_APP_URL + 'buckets', {
       headers: {
