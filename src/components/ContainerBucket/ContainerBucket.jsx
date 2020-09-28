@@ -5,8 +5,8 @@ import axios from 'axios';
 import { ContainerDesc } from '../ContainerDesc';
 
 export function ContainerBucket(props) {
+  const [form, setForm] = useState({ name: '', location: '' });
   const [locations, setLocation] = useState();
-
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_URL + 'locations', {
@@ -15,12 +15,14 @@ export function ContainerBucket(props) {
         },
       })
       .then((response) => {
-        setLocation(response.data.locations);
+        const resp = response.data.locations;
+        const newState = { name: '', location: resp[0].id };
+        setForm(newState);
+        setLocation(resp);
       });
   }, []);
 
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [form, setForm] = useState({ name: '', location: '' });
 
   const formChange = (value, item) => {
     const newState = { ...form, [item]: value };
@@ -71,6 +73,7 @@ export function ContainerBucket(props) {
   );
 
   const createBucket = (form) => {
+    if (!form) return;
     const postData = {
       name: form.name,
       location: form.location,
@@ -89,6 +92,9 @@ export function ContainerBucket(props) {
         return res.data;
       })
       .catch((error) => {
+        if (error.response.status === 409) {
+          alert(` bucket name: ${form.name} exist, please choose different name`);
+        }
         console.error(error);
       });
   };

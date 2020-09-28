@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Row, Table } from 'react-bootstrap';
+import { Button, Container, Row, Table } from 'react-bootstrap';
 import { ContainerDesc } from '../ContainerDesc';
 import { removeBucket } from '../../utils/removeBucket';
 
@@ -13,8 +13,13 @@ const GetItems = ({ items, onRemove }) => {
   if (items && items.hasOwnProperty('buckets') && items.buckets.length > 0) {
     return items.buckets.map((item) => (
       <tr key={item.id}>
-        <td onClick={() => onHandleRemove(item.id)}>{item.name}</td>
-        <td>placeholder</td>
+        <td>{item.name}</td>
+        <td>{item.location.name}</td>
+        <td>
+          <Button variant="danger" onClick={() => onHandleRemove(item.id)}>
+            Remove Bucket
+          </Button>
+        </td>
       </tr>
     ));
   } else {

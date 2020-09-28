@@ -12,5 +12,8 @@ export function removeBucket(id) {
     })
     .catch((error) => {
       console.error(error);
+      if (error.response.status === 404) {
+        alert(` bucket doesn't exist`);
+      }
     });
 }
