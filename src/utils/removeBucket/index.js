@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export function getBucket() {
+export function removeBucket(id) {
   return axios
-    .get(process.env.REACT_APP_URL + 'buckets', {
+    .delete(`${process.env.REACT_APP_URL}buckets/${id}`, {
       headers: {
         Authorization: `Token ${process.env.REACT_APP_TOKEN}`,
       },

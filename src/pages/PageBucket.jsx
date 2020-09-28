@@ -24,7 +24,7 @@ function PageBucket() {
       <ContainerNavbar />
       <ContainerBucket onAdd={getData} />
       <ContainerTitle />
-      <ContainerTable data={buckets} />
+      <ContainerTable data={buckets} onRemove={getData} />
     </>
   );
 }
