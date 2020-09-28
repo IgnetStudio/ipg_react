@@ -10,8 +10,8 @@ const GetItems = ({ items, onRemove }) => {
     onRemove();
   };
 
-  if (items && items.hasOwnProperty('buckets') && items.buckets.length > 0) {
-    return items.buckets.map((item) => (
+  if (items && items.length > 0) {
+    return items.map((item) => (
       <tr key={item.id}>
         <td>{item.name}</td>
         <td>{item.location.name}</td>
@@ -32,9 +32,10 @@ const GetItems = ({ items, onRemove }) => {
 };
 
 export function ContainerTable(props) {
+  console.log(props.data);
   return (
     <>
-      <ContainerDesc />
+      <ContainerDesc counter={props.data.length} />
       <Container>
         <Row>
           <Table>

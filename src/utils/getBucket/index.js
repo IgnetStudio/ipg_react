@@ -8,7 +8,7 @@ export function getBucket() {
       },
     })
     .then((res) => {
-      return res.data;
+      return res.data.buckets;
     })
     .catch((error) => {
       console.error(error);

@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 
 import { WrapperStorage } from '../WrapperStorage';
 import { NavStorage } from '../NavStorage';
+import { InputFile } from '../InputFile';
 
 export function ContainerStorage() {
   return (
@@ -10,6 +11,7 @@ export function ContainerStorage() {
       <Container>
         <NavStorage />
         <WrapperStorage />
+        <InputFile />
       </Container>
     </>
   );

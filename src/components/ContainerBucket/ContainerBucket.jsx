@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, Form } from 'react-bootstrap';
 import axios from 'axios';
 
-import { ContainerDesc } from '../ContainerDesc';
+// import { ContainerDesc } from '../ContainerDesc';
 
 export function ContainerBucket(props) {
   const [form, setForm] = useState({ name: '', location: '' });
@@ -89,6 +89,7 @@ export function ContainerBucket(props) {
       })
       .then((res) => {
         props.onAdd();
+        setForm({ name: '', location: '' });
         return res.data;
       })
       .catch((error) => {
@@ -101,7 +102,7 @@ export function ContainerBucket(props) {
 
   return (
     <>
-      <ContainerDesc />
+      {/* <ContainerDesc /> */}
       <Container>
         {!isFormOpen ? createNewBucketBtn : null}
         {isFormOpen ? formContainer : null}
