@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { ContainerDesc } from '../ContainerDesc';
 
-export function ContainerBucket() {
+export function ContainerBucket(props) {
   const [locations, setLocation] = useState();
 
   useEffect(() => {
@@ -85,6 +85,7 @@ export function ContainerBucket() {
         },
       })
       .then((res) => {
+        props.onAdd();
         return res.data;
       })
       .catch((error) => {

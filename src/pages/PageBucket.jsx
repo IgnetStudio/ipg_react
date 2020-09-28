@@ -11,17 +11,18 @@ function PageBucket() {
   const [buckets, setBuckets] = useState([]);
 
   useEffect(() => {
-    const getData = async () => {
-      const newBucket = await getBucket();
-      setBuckets(newBucket);
-    };
     getData();
   }, []);
+
+  const getData = async () => {
+    const newBucket = await getBucket();
+    setBuckets(newBucket);
+  };
 
   return (
     <>
       <ContainerNavbar />
-      <ContainerBucket />
+      <ContainerBucket onAdd={getData} />
       <ContainerTitle />
       <ContainerTable data={buckets} />
     </>
